@@ -1,0 +1,10 @@
+export const LIGHT_BLUE = '#62c2fe';
+export const LIGHT_GREY = '#fafafb';
+export const MEDIUM_BLUE = '#01a5fd';
+export const MEDIUM_GREEN = '#4ea285';
+export const MEDIUM_RED = '#f95f62';
+export const WHITE = 'white';
+export const GREEN = '#57c09d';
+export const TEXT_GREY = '#abb0c3';
+export const LINK_GREY = '#6d767f';
+export const RED = '#fa7275';

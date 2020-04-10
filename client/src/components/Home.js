@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getHatSrv } from '../service/data';
+import { HomeContainer, HomeTitle, HomeButton } from './styles/homeStyle';
 
 export default class Home extends Component {
   state = {
@@ -26,17 +27,11 @@ export default class Home extends Component {
   render() {
     const { hats } = this.state;
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
-      >
-        <h1>Clic which houses are you in ?</h1>
-        <button onClick={this.onClicked}>clic</button>
+      <HomeContainer>
+        <HomeTitle>Clic which houses are you in ?</HomeTitle>
+        <HomeButton onClick={this.onClicked}>clic</HomeButton>
         {hats}
-      </div>
+      </HomeContainer>
     );
   }
 }
