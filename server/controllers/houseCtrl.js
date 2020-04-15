@@ -9,4 +9,16 @@ const getListHouses = async (req, res) => {
   }
 };
 
-module.exports = { getListHouses };
+const houseById = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const houses = await dataStore.getHouseById(id);
+    res.json(houses);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+module.exports = { getListHouses, houseById };

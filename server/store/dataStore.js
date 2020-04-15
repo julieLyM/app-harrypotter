@@ -17,6 +17,11 @@ const getHouses = async () => {
   return data;
 };
 
+const getHouseById = async (id) => {
+  const { data } = await axios.get(`${URL}houses/${id}/?key=${key}`);
+  return data;
+};
+
 const getSpells = async () => {
   const { data } = await axios.get(`${URL}spells/?key=${key}`);
   return data;
@@ -32,5 +37,6 @@ module.exports = {
   getCharacterById,
   getHat,
   getHouses,
+  getHouseById,
   getSpells,
 };

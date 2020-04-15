@@ -5,6 +5,7 @@ import CharacterDetail from './components/CharacterDetail';
 import Spells from './components/Spells';
 import Houses from './components/Houses';
 import Home from './components/Home';
+import HouseDetail from './components/HouseDetail';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         </div>
         <Route exact path="/" component={Home} />
         <Route path="/Houses" component={Houses} />
+        <Route path="/Houses/:id" component={HouseDetail} />
         <Route path="/Spells" component={Spells} />
         <Route path="/Characters" component={Characters} />
         <Route path="/Characters/:id" component={CharacterDetail} />

@@ -15,14 +15,18 @@ export async function getHousesSrv() {
   return data;
 }
 
+export async function getHouseById(id) {
+  const { data } = await axios.get(`/api/v1/houses/${id}`);
+  return data;
+}
+
 export async function getSpellsSrv() {
   const { data } = await axios.get(`/api/v1/spells/`);
   return data;
 }
 
 export async function getHatSrv() {
-  const { data } = await axios.get(`/api/v1/sortingHat/`);
-  console.log(data);
+  const { data } = await axios.get(`/api/v1/hats/`);
   return data;
 }
 

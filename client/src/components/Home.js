@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getHatSrv } from '../service/data';
 import { HomeContainer, HomeTitle, HomeButton } from './styles/homeStyle';
-
+import { houses } from '../images/griffon.png';
 export default class Home extends Component {
   state = {
     hats: [],
@@ -29,6 +29,7 @@ export default class Home extends Component {
     return (
       <HomeContainer>
         <HomeTitle>Clic which houses are you in ?</HomeTitle>
+        <img src={houses} alt="" style={{width:'100px', height:'100px'}}/>
         <HomeButton onClick={this.onClicked}>clic</HomeButton>
         {hats}
       </HomeContainer>

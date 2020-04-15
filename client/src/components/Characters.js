@@ -26,7 +26,7 @@ export default class Peoples extends Component {
         >
           {results.map((result, i) => (
             <div key={i}>
-              <Link to={`/characters/${result._id}`} results={results}>
+              <Link to={`/characters/${result._id}`}>
                 {result.name}
               </Link>
             </div>
