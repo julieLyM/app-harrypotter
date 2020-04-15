@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export async function getCharactersSrv() {
   const { data } = await axios.get(`/api/v1/characters/`);
-  return data.slice(0, 20);
+  return data;
 }
 
 export async function getCharacterByIdSrv(id) {

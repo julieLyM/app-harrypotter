@@ -29,7 +29,7 @@ export default class Home extends Component {
     return (
       <HomeContainer>
         <HomeTitle>Clic which houses are you in ?</HomeTitle>
-        <img src={houses} alt="" style={{width:'100px', height:'100px'}}/>
+        {/* <img src={houses} alt="" style={{width:'100px', height:'100px'}}/> */}
         <HomeButton onClick={this.onClicked}>clic</HomeButton>
         {hats}
       </HomeContainer>
