@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { getHousesSrv } from '../service/data';
+
+import { HousesTitle, HousesBloc, DesignLink } from './styles/housesStyle';
 
 export default class Spells extends Component {
   state = {
@@ -21,14 +22,14 @@ export default class Spells extends Component {
     const { houses } = this.state;
     return (
       <div>
-        <h1>Magic Houses</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <HousesTitle>Magic Houses</HousesTitle>
+        <HousesBloc>
           {houses.map((house, i) => (
-            <Link key={i} to={`/houses/${house._id}`}>
+            <DesignLink key={i} to={`/houses/${house._id}`}>
               <p>{house.name}</p>
-            </Link>
+            </DesignLink>
           ))}
-        </div>
+        </HousesBloc>
       </div>
     );
   }

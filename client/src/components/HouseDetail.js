@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { getHouseById } from '../service/data';
 import { Link } from 'react-router-dom';
 
+import { HouseDetailContainer } from './styles/housesStyle';
+
 export default class HouseDetail extends Component {
   state = {
     house: [],
@@ -27,7 +29,7 @@ export default class HouseDetail extends Component {
   render() {
     const { house } = this.state;
     return (
-      <div>
+      <HouseDetailContainer>
         {house.map(
           (
             {
@@ -77,7 +79,7 @@ export default class HouseDetail extends Component {
             </div>
           )
         )}
-      </div>
+      </HouseDetailContainer>
     );
   }
 }
