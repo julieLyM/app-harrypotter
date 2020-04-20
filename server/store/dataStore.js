@@ -24,6 +24,11 @@ const getHouseById = async (id) => {
 
 const getSpells = async () => {
   const { data } = await axios.get(`${URL}spells/?key=${key}`);
+  return data.slice(0, 20);
+};
+
+const getSpellId = async (id) => {
+  const { data } = await axios.get(`${URL}spells/${id}/?key=${key}`);
   return data;
 };
 
@@ -39,4 +44,5 @@ module.exports = {
   getHouses,
   getHouseById,
   getSpells,
+  getSpellId,
 };

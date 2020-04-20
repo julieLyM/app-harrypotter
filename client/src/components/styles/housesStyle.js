@@ -27,14 +27,30 @@ export const DesignLink = styled(Link)`
   color: white;
   font-weight: 900;
   text-decoration: none;
-
+  text-transform: uppercase;
   a {
     text-decoration: none;
   }
 `;
 
-export const HouseDetailContainer = styled.p`
+//////////////////////
+
+export const HouseDetailContainer = styled.div`
+  border: solid 2px red;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+`;
+
+export const DetailHouseBloc = styled.div`
+  border: solid 2px green;
+  text-align: center;
+`;
+
+export const DetailHouseTitle = styled.span`
+  color: red;
+  text-transform: uppercase;
+`;
+
+export const DetailHouseText = styled.p`
+  color: blue;
 `;

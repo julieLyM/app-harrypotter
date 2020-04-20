@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { getHatSrv } from '../service/data';
-import { HomeContainer, HomeTitle, HomeButton } from './styles/homeStyle';
+import {
+  HomeContainer,
+  HomeTitle,
+  HomeButton,
+  Title,
+} from './styles/homeStyle';
 export default class Home extends Component {
   state = {
     hats: [],
@@ -27,11 +32,8 @@ export default class Home extends Component {
     const { hats } = this.state;
     return (
       <HomeContainer>
-        <img
-          src={`/image/banner.png`}
-          alt=""
-          style={{ height: '300px', width: '100%' }}
-        />
+        <Title>Harry Potter</Title>
+
         <HomeTitle>Clic which houses are you in ?</HomeTitle>
         <img
           src={`/image/hat.png`}

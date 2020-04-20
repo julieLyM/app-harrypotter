@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { getHouseById } from '../service/data';
 import { Link } from 'react-router-dom';
 
-import { HouseDetailContainer } from './styles/housesStyle';
+import {
+  HouseDetailContainer,
+  DetailHouseBloc,
+  DetailHouseText,
+  DetailHouseTitle,
+} from './styles/housesStyle';
 
 export default class HouseDetail extends Component {
   state = {
@@ -44,15 +49,17 @@ export default class HouseDetail extends Component {
             },
             i
           ) => (
-            <div
-              key={i}
-              style={{ border: '1px solid blue', flex: '1 1 150px' }}
-            >
-              <p> {mascot}</p>
-              <p> {headOfHouse}</p>
-              <p> {houseGhost}</p>
-              <p>{founder} </p>
-              <p>{school}</p>
+            <DetailHouseBloc key={i}>
+              <DetailHouseTitle>Mascot:</DetailHouseTitle>{' '}
+              <DetailHouseText> {mascot}</DetailHouseText>
+              <DetailHouseTitle>headOfHouse:</DetailHouseTitle>
+              <DetailHouseText> {headOfHouse}</DetailHouseText>
+              <DetailHouseTitle>houseGhost:</DetailHouseTitle>
+              <DetailHouseText> {houseGhost}</DetailHouseText>
+              <DetailHouseTitle>founder:</DetailHouseTitle>
+              <DetailHouseText>{founder} </DetailHouseText>
+              <DetailHouseTitle>school:</DetailHouseTitle>{' '}
+              <DetailHouseText>{school}</DetailHouseText>
               <div>
                 <h4>values of house:</h4>
                 {values.map((element, i) => (
@@ -65,7 +72,6 @@ export default class HouseDetail extends Component {
                   <div key={i}>{element}</div>
                 ))}
               </div>
-
               <div>
                 <h4>members of house:</h4>
                 {members.map((element, i) => (
@@ -76,7 +82,7 @@ export default class HouseDetail extends Component {
                   </div>
                 ))}
               </div>
-            </div>
+            </DetailHouseBloc>
           )
         )}
       </HouseDetailContainer>

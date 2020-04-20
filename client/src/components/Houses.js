@@ -3,6 +3,12 @@ import { getHousesSrv } from '../service/data';
 
 import { HousesTitle, HousesBloc, DesignLink } from './styles/housesStyle';
 
+
+// const rav = `${`/image/rav.png`}`
+// if (`${house._id}` === `${house.5a05da69d45bd0a11bd5e06f}`){
+//   return rav
+// }
+
 export default class Spells extends Component {
   state = {
     houses: [],
@@ -18,6 +24,8 @@ export default class Spells extends Component {
       houses: data,
     });
   };
+
+  
   render() {
     const { houses } = this.state;
     return (

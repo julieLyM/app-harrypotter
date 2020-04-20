@@ -2,11 +2,14 @@ import axios from 'axios';
 
 export async function getCharactersSrv() {
   const { data } = await axios.get(`/api/v1/characters/`);
+  console.log(data);
   return data;
 }
 
 export async function getCharacterByIdSrv(id) {
   const { data } = await axios.get(`/api/v1/characters/${id}`);
+  console.log(data);
+
   return data;
 }
 
@@ -22,6 +25,11 @@ export async function getHouseById(id) {
 
 export async function getSpellsSrv() {
   const { data } = await axios.get(`/api/v1/spells/`);
+  return data;
+}
+
+export async function getSpellsDetailSrv(id) {
+  const { data } = await axios.get(`/api/v1/spells/${id}`);
   return data;
 }
 

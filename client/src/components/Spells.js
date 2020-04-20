@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { getSpellsSrv } from '../service/data';
 
 export default class Spells extends Component {
@@ -21,15 +23,12 @@ export default class Spells extends Component {
     return (
       <div>
         <h1>All Spells</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap', padding: '10px' }}>
-          {spells.map(({ spell, type, effect }, i) => (
-            <div
-              key={i}
-              style={{ border: '1px solid blue', flex: '1 1 250px' }}
-            >
-              <p> name of spell : {spell}</p>
-              <p> type : {type}</p>
-              <p> effect: {effect}</p>
+        <div>
+          {spells.map(({ spell, _id }, i) => (
+            <div key={i}>
+              <Link key={i} to={`/Spells/${_id}`}>
+                <p>{spell}</p>
+              </Link>
             </div>
           ))}
         </div>
