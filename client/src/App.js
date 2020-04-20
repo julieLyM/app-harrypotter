@@ -13,7 +13,7 @@ import SpellDetail from './components/SpellDetail';
 function App() {
   return (
     <div style={{ backgroundColor: 'black', color: 'white' }}>
-      <p>learn react</p>
+      <p>APP Harry Potter</p>
       <BrowserRouter>
         <Header />
         <Route exact path="/" component={Home} />
