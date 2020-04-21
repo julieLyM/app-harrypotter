@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { GOLD } from './colors';
 import { Link } from 'react-router-dom';
 
 export const HouseContainer = styled.div`
@@ -14,7 +15,7 @@ export const HousesBloc = styled.p`
 `;
 
 export const HousesTitle = styled.p`
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 900;
   text-transform: uppercase;
   font-family: 'Harry Potter';
@@ -24,8 +25,8 @@ export const HousesTitle = styled.p`
 export const DesignLink = styled(Link)`
   font-size: 26px;
   margin: 0 10px 0 0;
-  color: white;
   font-weight: 900;
+  color: black;
   text-decoration: none;
   text-transform: uppercase;
   a {
@@ -36,21 +37,41 @@ export const DesignLink = styled(Link)`
 //////////////////////
 
 export const HouseDetailContainer = styled.div`
-  border: solid 2px red;
   display: flex;
   flex-direction: column;
+  padding: 5%;
+  align-items: center;
 `;
 
 export const DetailHouseBloc = styled.div`
-  border: solid 2px green;
+  display: flex;
+  justify-content: center;
+  border: solid black 2px;
+  border-radius: 2%;
+  width: 50%;
+`;
+
+export const BlocDetailInfo = styled.div`
+  width: 300px;
+  margin: 20px;
   text-align: center;
 `;
 
 export const DetailHouseTitle = styled.span`
-  color: red;
+  color: ${GOLD};
+  font-weight: 900;
   text-transform: uppercase;
 `;
 
 export const DetailHouseText = styled.p`
-  color: blue;
+  font-weight: 900;
+`;
+
+export const DesignLinkHouseDetail = styled(Link)`
+  font-weight: 900;
+  color: black;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 `;

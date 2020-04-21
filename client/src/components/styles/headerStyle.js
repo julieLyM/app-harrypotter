@@ -7,6 +7,7 @@ export const MenuContainer = styled.div`
   justify-content: space-around;
   padding: 10px;
   background-color: #b47704;
+  height: 15vh;
 `;
 
 export const MenuTitle = styled.p`
@@ -18,8 +19,8 @@ export const MenuTitle = styled.p`
 export const MenuBlocPicture = styled.div``;
 
 export const MenuPicture = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 `;
 
 export const MenuBlocLink = styled.div`

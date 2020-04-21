@@ -12,8 +12,8 @@ import SpellDetail from './components/SpellDetail';
 
 function App() {
   return (
-    <div style={{ backgroundColor: 'black', color: 'white' }}>
-      <p>APP Harry Potter</p>
+    <div>
+      <p style={{ display: 'none' }}>APP Harry Potter</p>
       <BrowserRouter>
         <Header />
         <Route exact path="/" component={Home} />
@@ -21,7 +21,7 @@ function App() {
         <Route path="/Houses/:id" component={HouseDetail} />
         <Route path="/Spells" component={Spells} />
         <Route path="/Spells/:id" component={SpellDetail} />
-        <Route path="/Characters" component={Characters} />
+        <Route exact path="/Characters" component={Characters} />
         <Route path="/Characters/:id" component={CharacterDetail} />
       </BrowserRouter>
     </div>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { getHouseById } from '../service/data';
-import { Link } from 'react-router-dom';
 
 import {
   HouseDetailContainer,
   DetailHouseBloc,
   DetailHouseText,
   DetailHouseTitle,
+  DesignLinkHouseDetail,
+  BlocDetailInfo,
 } from './styles/housesStyle';
 
 export default class HouseDetail extends Component {
@@ -50,38 +51,46 @@ export default class HouseDetail extends Component {
             i
           ) => (
             <DetailHouseBloc key={i}>
-              <DetailHouseTitle>Mascot:</DetailHouseTitle>{' '}
-              <DetailHouseText> {mascot}</DetailHouseText>
-              <DetailHouseTitle>headOfHouse:</DetailHouseTitle>
-              <DetailHouseText> {headOfHouse}</DetailHouseText>
-              <DetailHouseTitle>houseGhost:</DetailHouseTitle>
-              <DetailHouseText> {houseGhost}</DetailHouseText>
-              <DetailHouseTitle>founder:</DetailHouseTitle>
-              <DetailHouseText>{founder} </DetailHouseText>
-              <DetailHouseTitle>school:</DetailHouseTitle>{' '}
-              <DetailHouseText>{school}</DetailHouseText>
-              <div>
-                <h4>values of house:</h4>
-                {values.map((element, i) => (
-                  <div key={i}>{element}</div>
-                ))}
-              </div>
-              <div>
-                <h4>colors of house:</h4>
-                {colors.map((element, i) => (
-                  <div key={i}>{element}</div>
-                ))}
-              </div>
-              <div>
-                <h4>members of house:</h4>
+              <BlocDetailInfo>
+                <DetailHouseTitle>Mascot:</DetailHouseTitle>{' '}
+                <DetailHouseText> {mascot}</DetailHouseText>
+                <DetailHouseTitle>headOfHouse:</DetailHouseTitle>
+                <DetailHouseText> {headOfHouse}</DetailHouseText>
+                <DetailHouseTitle>houseGhost:</DetailHouseTitle>
+                <DetailHouseText> {houseGhost}</DetailHouseText>
+                <DetailHouseTitle>founder:</DetailHouseTitle>
+                <DetailHouseText>{founder} </DetailHouseText>
+                <DetailHouseTitle>school:</DetailHouseTitle>{' '}
+                <DetailHouseText>{school}</DetailHouseText>
+                <div>
+                  <DetailHouseTitle>values of house:</DetailHouseTitle>
+                  {values.map((element, i) => (
+                    <div key={i}>
+                      <DetailHouseText>{element}</DetailHouseText>
+                    </div>
+                  ))}
+                </div>
+                <p></p>
+                <div>
+                  <DetailHouseTitle>colors of house:</DetailHouseTitle>
+                  {colors.map((element, i) => (
+                    <div key={i}>
+                      <DetailHouseText>{element}</DetailHouseText>
+                    </div>
+                  ))}
+                </div>
+              </BlocDetailInfo>
+
+              <BlocDetailInfo>
+                <DetailHouseTitle>members of house:</DetailHouseTitle>
                 {members.map((element, i) => (
                   <div key={i}>
-                    <Link to={`/characters/${element._id}`}>
-                      {element.name}
-                    </Link>
+                    <DesignLinkHouseDetail to={`/characters/${element._id}`}>
+                      <p>{element.name}</p>
+                    </DesignLinkHouseDetail>
                   </div>
                 ))}
-              </div>
+              </BlocDetailInfo>
             </DetailHouseBloc>
           )
         )}
