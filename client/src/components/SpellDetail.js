@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { getSpellsDetailSrv } from '../service/data';
+import {
+  CharacterDetailContainer,
+  CharacterDetailText,
+  CharacterDetailTitle,
+  CharacterDetailSub,
+  CharacterDetailBloc,
+} from './styles/charactersStyle';
 
 export default class Spells extends Component {
   state = {
@@ -25,18 +32,21 @@ export default class Spells extends Component {
     const { spell } = this.state;
     console.log(this.state);
     return (
-      <div>
-        <h1>Spell Detail</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap', padding: '10px' }}>
+      <CharacterDetailContainer>
+        <CharacterDetailTitle>Spell Detail</CharacterDetailTitle>
+        <CharacterDetailBloc>
           {spell.map((element, i) => (
             <div key={i}>
-              <p style={{ color: 'red' }}> Name of spell : </p> {element.spell}
-              <p style={{ color: 'red' }}> Type of spell :</p> {element.type}
-              <p style={{ color: 'red' }}> Effect :</p> {element.effect}
+              <CharacterDetailSub> Name of spell : </CharacterDetailSub>{' '}
+              <CharacterDetailText> {element.spell}</CharacterDetailText>
+              <CharacterDetailSub> Type of spell :</CharacterDetailSub>{' '}
+              <CharacterDetailText> {element.type}</CharacterDetailText>
+              <CharacterDetailSub> Effect :</CharacterDetailSub>{' '}
+              <CharacterDetailText> {element.effect}</CharacterDetailText>
             </div>
           ))}
-        </div>
-      </div>
+        </CharacterDetailBloc>
+      </CharacterDetailContainer>
     );
   }
 }

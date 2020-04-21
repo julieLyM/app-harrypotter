@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { DesignLinkHouseDetail } from './styles/housesStyle';
 
 import { getSpellsSrv } from '../service/data';
+import {
+
+  CharacterDetailTitle,
+} from './styles/charactersStyle';
 
 export default class Spells extends Component {
   state = {
@@ -22,13 +26,15 @@ export default class Spells extends Component {
     const { spells } = this.state;
     return (
       <div>
-        <h1>All Spells</h1>
+        <CharacterDetailTitle>All Spells</CharacterDetailTitle>
         <div>
           {spells.map(({ spell, _id }, i) => (
             <div key={i}>
-              <Link key={i} to={`/Spells/${_id}`}>
-                <p>{spell}</p>
-              </Link>
+              <DesignLinkHouseDetail key={i} to={`/Spells/${_id}`}>
+                <ul>
+                  <li>{spell}</li>
+                </ul>
+              </DesignLinkHouseDetail>
             </div>
           ))}
         </div>

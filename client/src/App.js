@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/Houses" component={Houses} />
         <Route path="/Houses/:id" component={HouseDetail} />
-        <Route path="/Spells" component={Spells} />
+        <Route exact path="/Spells" component={Spells} />
         <Route path="/Spells/:id" component={SpellDetail} />
         <Route exact path="/Characters" component={Characters} />
         <Route path="/Characters/:id" component={CharacterDetail} />

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { getHousesSrv } from '../service/data';
-
 import {
   HousesTitle,
   HousesBloc,
   DesignLink,
+  HouseImg,
   HouseContainer,
 } from './styles/housesStyle';
 
@@ -30,42 +30,26 @@ export default class Spells extends Component {
   };
 
   render() {
-    const { houses } = this.state;
+    // const { houses } = this.state;
     return (
       <HouseContainer>
         <HousesTitle>Magic Houses</HousesTitle>
-        <div style={{ display: 'flex' }}>
+        <HousesBloc>
           <DesignLink to={`/houses/5a05e2b252f721a3cf2ea33f`}>
-            <img
-              src={`/image/griffon.png`}
-              alt=""
-              style={{ width: '250px', height: '250px' }}
-            />
+            <HouseImg src={`/image/griffon.png`} alt="" />
           </DesignLink>
           <DesignLink to={`/houses/5a05da69d45bd0a11bd5e06f`}>
-            <img
-              src={`/image/rav.png`}
-              alt=""
-              style={{ width: '250px', height: '250px' }}
-            />{' '}
+            <HouseImg src={`/image/rav.png`} alt="" />
           </DesignLink>
 
           <DesignLink to={`/houses/5a05dc8cd45bd0a11bd5e071`}>
-            <img
-              src={`/image/slytherin.png`}
-              alt=""
-              style={{ width: '250px', height: '250px' }}
-            />
+            <HouseImg src={`/image/slytherin.png`} alt="" />
           </DesignLink>
 
           <DesignLink to={`/houses/5a05dc58d45bd0a11bd5e070`}>
-            <img
-              src={`/image/pouff.png`}
-              alt=""
-              style={{ width: '250px', height: '250px' }}
-            />{' '}
+            <HouseImg src={`/image/pouff.png`} alt="" />
           </DesignLink>
-        </div>
+        </HousesBloc>
         {/* <HousesBloc>
           {houses.map((house, i) => (
             <DesignLink key={i} to={`/houses/${house._id}`}>

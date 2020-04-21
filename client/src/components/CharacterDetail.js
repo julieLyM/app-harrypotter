@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 
 import { getCharacterByIdSrv } from '../service/data';
 
+import {
+  CharacterDetailContainer,
+  CharacterDetailText,
+  CharacterDetailTitle,
+  CharacterDetailSub,
+  CharacterDetailBloc,
+} from './styles/charactersStyle';
+
 export default class CharacterDetail extends Component {
   state = {
     character: [],
@@ -40,19 +48,41 @@ export default class CharacterDetail extends Component {
       },
     } = this.state;
     return (
-      <div>
-        <h2>{name}</h2>
-        <p>{alias}</p>
-        <p>{role}</p>
-        <p>{animagus}</p>
-        <p>{patronus}</p>
-        <p>{house}</p>
-        <p>{school}</p>
-        <p>{species}</p>
-        <p>{wand}</p>
-        <p>{boggart}</p>
-        <p>{bloodStatus}</p>
-      </div>
+      <CharacterDetailContainer>
+        <CharacterDetailTitle>{name}</CharacterDetailTitle>
+
+        <CharacterDetailBloc>
+          <CharacterDetailSub>alias :</CharacterDetailSub>
+          <CharacterDetailText>{alias}</CharacterDetailText>
+
+          <CharacterDetailSub>role :</CharacterDetailSub>
+          <CharacterDetailText>{role}</CharacterDetailText>
+
+          <CharacterDetailSub>animagus :</CharacterDetailSub>
+          <CharacterDetailText>{animagus}</CharacterDetailText>
+
+          <CharacterDetailSub>patronus :</CharacterDetailSub>
+          <CharacterDetailText>{patronus}</CharacterDetailText>
+
+          <CharacterDetailSub>house :</CharacterDetailSub>
+          <CharacterDetailText>{house}</CharacterDetailText>
+
+          <CharacterDetailSub>school :</CharacterDetailSub>
+          <CharacterDetailText>{school}</CharacterDetailText>
+
+          <CharacterDetailSub>species :</CharacterDetailSub>
+          <CharacterDetailText>{species}</CharacterDetailText>
+
+          <CharacterDetailSub>wand :</CharacterDetailSub>
+          <CharacterDetailText>{wand}</CharacterDetailText>
+
+          <CharacterDetailSub>boggart :</CharacterDetailSub>
+          <CharacterDetailText>{boggart}</CharacterDetailText>
+
+          <CharacterDetailSub>blood status :</CharacterDetailSub>
+          <CharacterDetailText>{bloodStatus}</CharacterDetailText>
+        </CharacterDetailBloc>
+      </CharacterDetailContainer>
     );
   }
 }
