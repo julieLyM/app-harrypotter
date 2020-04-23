@@ -8,11 +8,6 @@ import {
   HouseContainer,
 } from './styles/housesStyle';
 
-// const rav = `${`/image/rav.png`}`
-// if (`${house._id}` === `${house.5a05da69d45bd0a11bd5e06f}`){
-//   return rav
-// }
-
 export default class Spells extends Component {
   state = {
     houses: [],

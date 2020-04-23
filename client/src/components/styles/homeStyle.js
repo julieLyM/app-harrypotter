@@ -15,7 +15,7 @@ export const Title = styled.p`
   font-size: 50px;
   font-weight: 900;
   text-transform: uppercase;
-  font-family: 'Harry Potter';
+  font-family: 'HarryPotter';
   color: #f2a412;
   @media (${device.mobileL}) {
     font-size: 30px;
@@ -23,7 +23,7 @@ export const Title = styled.p`
 `;
 
 export const HomeTitle = styled.p`
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
@@ -37,4 +37,13 @@ export const HomeTitle = styled.p`
 
 export const HomeButton = styled.button`
   width: 100px;
+`;
+
+export const HomeImg = styled.img`
+  width: 200px;
+  height: 230px;
+  @media (${device.mobileL}) {
+    width: 100px;
+    height: 120px;
+  }
 `;

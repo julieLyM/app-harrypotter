@@ -7,8 +7,9 @@ import Spells from './components/Spells';
 import Houses from './components/Houses';
 import Home from './components/Home';
 import HouseDetail from './components/HouseDetail';
-import { Header } from './components/Header';
 import SpellDetail from './components/SpellDetail';
+import { Header } from './components/Header';
+import './components/styles/index.css';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/Houses" component={Houses} />
         <Route path="/Houses/:id" component={HouseDetail} />
-        <Route exact path="/Spells" component={Spells} />
+        <Route path="/Spells" component={Spells} />
         <Route path="/Spells/:id" component={SpellDetail} />
         <Route exact path="/Characters" component={Characters} />
         <Route path="/Characters/:id" component={CharacterDetail} />

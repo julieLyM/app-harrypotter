@@ -14,8 +14,13 @@ export const CharactersBloc = styled.div`
 `;
 
 export const CharactersTitle = styled.div`
-  font-family: 'harry potter';
+  font-family: 'HarryPotter';
   font-size: 30px;
+`;
+
+export const ButtonBloc = styled.div`
+  text-align: center;
+  margin: 10px auto;
 `;
 
 /////////// character detail
@@ -23,6 +28,10 @@ export const CharactersTitle = styled.div`
 export const CharacterDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 `;
 export const CharacterDetailBloc = styled.div`
   border: black solid 2px;
@@ -32,7 +41,7 @@ export const CharacterDetailBloc = styled.div`
 `;
 
 export const CharacterDetailTitle = styled.p`
-  font-family: 'harry potter';
+  font-family: 'HarryPotter';
   font-size: 34px;
   text-align: center;
 `;

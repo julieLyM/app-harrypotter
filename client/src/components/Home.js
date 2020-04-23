@@ -5,6 +5,7 @@ import {
   HomeTitle,
   HomeButton,
   Title,
+  HomeImg,
 } from './styles/homeStyle';
 export default class Home extends Component {
   state = {
@@ -35,11 +36,7 @@ export default class Home extends Component {
         <Title>Harry Potter</Title>
 
         <HomeTitle>Clic which houses are you in ?</HomeTitle>
-        <img
-          src={`/image/hat.png`}
-          alt=""
-          // style={{ width: '100px', height: '100px' }}
-        />
+        <HomeImg src={`/image/hat.png`} alt="" />
         <HomeButton onClick={this.onClicked}>clic</HomeButton>
         <HomeTitle>{hats}</HomeTitle>
       </HomeContainer>

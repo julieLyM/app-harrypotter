@@ -1,0 +1,9 @@
+
+
+@font-face {
+  font-family: 'HarryPotter';
+  src: url('../../font/HarryPotter.ttf');
+  src: url('../../font/HarryPotter.ttf') format('truetype'),
+    url('../../font/HarryPotter.eot') format('embedded-opentype'),
+    url('../../font/HarryPotter.woff') format('woff');
+}

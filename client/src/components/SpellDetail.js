@@ -22,6 +22,7 @@ export default class Spells extends Component {
       this.fetchSpell();
     }
   }
+  
   fetchSpell = async () => {
     const data = await getSpellsDetailSrv(this.props.match.params.id);
     this.setState({

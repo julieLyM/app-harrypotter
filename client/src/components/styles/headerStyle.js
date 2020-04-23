@@ -54,7 +54,7 @@ export const MenuBlocLink = styled.div`
 `;
 
 export const DesignLink = styled(Link)`
-  font-family: 'Harry Potter';
+  font-family: 'HarryPotter';
   font-size: 40px;
   margin: 0 18px;
   color: black;

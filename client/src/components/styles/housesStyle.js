@@ -19,7 +19,7 @@ export const HousesTitle = styled.p`
   font-size: 34px;
   font-weight: 900;
   text-transform: uppercase;
-  font-family: 'Harry Potter';
+  font-family: 'HarryPotter';
   text-align: center;
   @media (${device.mobileL}) {
     font-size: 20px;
@@ -27,11 +27,11 @@ export const HousesTitle = styled.p`
 `;
 
 export const HouseImg = styled.img`
-  width: 250px;
-  height: 250px;
+  width: 130px;
+  height: 150px;
   @media (${device.mobileL}) {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 120px;
   }
 `;
 
