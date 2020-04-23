@@ -57,20 +57,16 @@ export default class Peoples extends Component {
           </Link>
         </CharactersBloc>
 
-        <div style={{ margin: '0 auto' }}>
+        <div style={{ margin: '0 auto', textAlign: 'center' }}>
           {!isLoading ? (
             notLoading
           ) : (
             <div>
               {results.map((result, i) => (
                 <div key={i}>
-                  <ul>
-                    <li>
-                      <DesignLinkHouseDetail to={`/characters/${result._id}`}>
-                        {result.name}
-                      </DesignLinkHouseDetail>
-                    </li>
-                  </ul>
+                  <DesignLinkHouseDetail to={`/characters/${result._id}`}>
+                    <p style={{ color: '#F0452B' }}>{result.name}</p>
+                  </DesignLinkHouseDetail>
                 </div>
               ))}
             </div>

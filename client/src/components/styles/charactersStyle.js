@@ -28,7 +28,7 @@ export const ButtonBloc = styled.div`
 export const CharacterDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -36,8 +36,7 @@ export const CharacterDetailContainer = styled.div`
 export const CharacterDetailBloc = styled.div`
   border: black solid 2px;
   border-radius: 3%;
-  padding: 5%;
-  margin: 5%;
+  padding: 10px 30px;
 `;
 
 export const CharacterDetailTitle = styled.p`

@@ -37,13 +37,16 @@ export const HouseImg = styled.img`
 
 export const DesignLink = styled(Link)`
   font-size: 26px;
-  margin: 0 10px 0 0;
+  margin: 10px;
   font-weight: 900;
-  color: black;
+  color: '#F0452B';
   text-decoration: none;
   text-transform: uppercase;
   a {
     text-decoration: none;
+  }
+  a:hover {
+    color: yellow;
   }
 `;
 
