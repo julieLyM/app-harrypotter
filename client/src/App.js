@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Characters from './components/Characters';
+import { Characters } from './components/Characters';
 import CharacterDetail from './components/CharacterDetail';
 import Spells from './components/Spells';
 import Houses from './components/Houses';
