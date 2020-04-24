@@ -60,13 +60,13 @@ workflows:
   version: 2
   build_HarryPotter:
     jobs:
-      - Client
-      - Server
-      - Validation:
-          type: approval
-          requires: 
-             - Client
-             - Server
-      - Deploy:
-          requires:
-              - Validation
+      # - Client
+      # - Server
+      # - Validation:
+      #     type: approval
+      #     requires: 
+      #        - Client
+      #        - Server
+      - Deploy
+          # requires:
+          #     - Validation

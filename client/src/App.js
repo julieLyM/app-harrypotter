@@ -22,8 +22,10 @@ function App() {
         <Route path="/Houses/:id" component={HouseDetail} />
         <Route exact path="/Spells" component={Spells} />
         <Route path="/Spells/:id" component={SpellDetail} />
-        <Route exact path="/Characters" component={Characters} />
-        <Route path="/Characters/:id" component={CharacterDetail} />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Route path="/Characters" component={Characters} />
+          <Route path="/Characters/:id" component={CharacterDetail} />
+        </div>
       </BrowserRouter>
     </div>
   );

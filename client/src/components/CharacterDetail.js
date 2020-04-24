@@ -49,9 +49,8 @@ export default class CharacterDetail extends Component {
     } = this.state;
     return (
       <CharacterDetailContainer>
-        <CharacterDetailTitle>{name}</CharacterDetailTitle>
-
         <CharacterDetailBloc>
+          <CharacterDetailTitle>{name}</CharacterDetailTitle>
           <CharacterDetailSub>alias :</CharacterDetailSub>
           <CharacterDetailText>{alias}</CharacterDetailText>
 

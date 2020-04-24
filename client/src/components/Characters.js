@@ -41,13 +41,13 @@ export const Characters = () => {
         </Link>
       </CharactersBloc>
 
-      <div style={{ margin: '0 auto', textAlign: 'center' }}>
+      <div>
         {!isLoading ? (
           <div>
             <h3>is loading...</h3>
           </div>
         ) : (
-          <div>
+          <div style={{ textAlign: 'center' }}>
             {characters.map((result, i) => (
               <div key={i}>
                 <DesignLinkHouseDetail to={`/characters/${result._id}`}>

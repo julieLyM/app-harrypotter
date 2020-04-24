@@ -4,7 +4,8 @@ import { GOLD } from './colors';
 export const CharactersContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  width: 50%;
+  padding: 10px 30px;
 `;
 
 export const CharactersBloc = styled.div`
@@ -23,19 +24,24 @@ export const ButtonBloc = styled.div`
   margin: 10px auto;
 `;
 
+export const DesignLinkHouseDetail = styled.div`
+  text-align: center;
+  margin: 10px auto;
+`;
+
 /////////// character detail
 
 export const CharacterDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 50%;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
 `;
 export const CharacterDetailBloc = styled.div`
   border: black solid 2px;
-  border-radius: 3%;
+  border-radius: 50px;
   padding: 10px 30px;
 `;
 
