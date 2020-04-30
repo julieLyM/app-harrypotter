@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { getHatSrv } from '../service/data';
 import {
   HomeContainer,
@@ -9,42 +9,31 @@ import {
   BlocHome,
 } from './styles/homeStyle';
 
-export default class Home extends Component {
-  state = {
-    hats: [],
-    isLoading: false,
-  };
+const Home = () => {
+  const [hats, setHats] = useState([]);
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.hats === null) {
-      this.onClicked();
-    }
-  }
-
-  fetchHat = async () => {
+  const fetchHat = async () => {
     const data = await getHatSrv();
-    this.setState({
-      hats: data,
-    });
+    setHats(data);
   };
 
-  onClicked = async () => {
-    await this.fetchHat();
+  const onClicked = () => {
+    fetchHat();
   };
-  render() {
-    const { hats } = this.state;
-    return (
-      <HomeContainer>
-        <Title>Harry Potter</Title>
-        <BlocHome>
-          <HomeImg src={`/image/hat.png`} alt="" />
-          <HomeTitle>Which houses are you in ?</HomeTitle>
-          <HomeButton onClick={this.onClicked}>
-            <img src={`/image/wand.svg`} alt="" style={{ width: '50px' }} />
-          </HomeButton>
-          <HomeTitle>{hats}</HomeTitle>
-        </BlocHome>
-      </HomeContainer>
-    );
-  }
-}
+
+  return (
+    <HomeContainer>
+      <Title>Harry Potter</Title>
+      <BlocHome>
+        <HomeImg src={`/image/hat.png`} alt="" />
+        <HomeTitle>Which houses are you in ?</HomeTitle>
+        <HomeButton onClick={onClicked}>
+          <img src={`/image/wand.svg`} alt="" style={{ width: '50px' }} />
+        </HomeButton>
+        <HomeTitle>{hats}</HomeTitle>
+      </BlocHome>
+    </HomeContainer>
+  );
+};
+
+export default Home;

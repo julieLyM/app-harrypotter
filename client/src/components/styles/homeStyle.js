@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { device } from './mediaQuerries';
-import { Link } from 'react-router-dom';
 
 export const HomeContainer = styled.div`
   display: flex;
@@ -12,7 +11,13 @@ export const HomeContainer = styled.div`
 
 export const BlocHome = styled.div`
   text-align: center;
-  background: linear-gradient(45deg, #353839, #19325c, #60789e, #112038);
+  background: linear-gradient(
+    45deg,
+    rgba(53, 56, 57, 0.5),
+    #19325c,
+    #60789e,
+    #112038
+  );
   background-size: 400%;
   background-position: 0 100%;
   -webkit-animation: anim 10s infinite;
@@ -24,7 +29,6 @@ export const BlocHome = styled.div`
   align-items: center;
   color: white;
   flex-direction: column;
-  opacity: 80%;
   @keyframes anim {
     0% {
       background-position: 0% 50%;
@@ -63,8 +67,11 @@ export const HomeTitle = styled.p`
   }
 `;
 
-export const HomeButton = styled(Link)`
+export const HomeButton = styled.button`
   width: 100px;
+  border: none;
+  background-color: transparent;
+  outline: none;
 `;
 
 export const HomeImg = styled.img`

@@ -26,7 +26,13 @@ export const ContainerData = styled.div`
 `;
 
 export const BlocData = styled.div`
-  background: linear-gradient(45deg, #353839, #19325c, #60789e, #112038);
+  background: linear-gradient(
+    45deg,
+    rgba(53, 56, 57, 0.5),
+    #19325c,
+    #60789e,
+    #112038
+  );
   background-size: 400%;
   background-position: 0 100%;
   animation: anim 10s infinite;
@@ -53,6 +59,11 @@ export const ButtonBloc = styled.div`
   display: flex;
   justify-content: space-around;
   color: white;
+  button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
 `;
 
 export const ImgLinkBtn = styled.img`

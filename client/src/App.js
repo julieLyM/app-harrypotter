@@ -9,8 +9,8 @@ import Home from './components/Home';
 import HouseDetail from './components/HouseDetail';
 import SpellDetail from './components/SpellDetail';
 import { Header } from './components/Header';
-import './components/styles/index.css';
 import { AppContent, TwoContainer } from './components/styles/appStyle';
+import './components/styles/index.css';
 
 function App() {
   return (

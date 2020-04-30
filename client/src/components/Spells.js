@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
 import { getSpellsSrv } from '../service/data';
 
 import { DesignLinkHouseDetail } from './styles/housesStyle';
@@ -16,70 +16,59 @@ import {
   ContainerData,
 } from './styles/charactersStyle';
 
-export default class Spells extends Component {
-  state = {
-    spells: [],
-    page: 1,
-    isLoading: false,
+const Spells = () => {
+  const [spells, setSpells] = useState([]);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchSpell = async () => {
+      const data = await getSpellsSrv(page);
+      setSpells(data);
+      setIsLoading(true);
+    };
+    fetchSpell();
+  }, [page]);
+
+  const changePage = (pageNumber) => {
+    setPage(page + pageNumber);
   };
 
-  componentDidMount() {
-    this.fetchSpell();
-  }
+  const notLoading = (
+    <Loading>
+      <LoadingTitle>loading...</LoadingTitle>
+      <LoadingImg src={`/image/wait.gif`} alt="" />
+    </Loading>
+  );
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.page !== this.state.page) {
-      this.fetchSpell();
-    }
-  }
+  return (
+    <CharactersContainer>
+      <CharacterTitle>All Spells</CharacterTitle>
+      <ContainerData>
+        {!isLoading ? (
+          notLoading
+        ) : (
+          <BlocData>
+            {spells.map(({ spell, _id }, i) => (
+              <div key={i}>
+                <DesignLinkHouseDetail key={i} to={`/Spells/${_id}`}>
+                  <TextSimple>{spell}</TextSimple>
+                </DesignLinkHouseDetail>
+              </div>
+            ))}
+            <ButtonBloc>
+              <button onClick={changePage.bind(null, -1)}>
+                <ImgLinkBtn src={`/image/left.svg`} alt="" />
+              </button>
+              <button onClick={changePage.bind(null, 1)}>
+                <ImgLinkBtn src={`/image/right.svg`} alt="" />
+              </button>
+            </ButtonBloc>
+          </BlocData>
+        )}
+      </ContainerData>
+    </CharactersContainer>
+  );
+};
 
-  fetchSpell = async () => {
-    const data = await getSpellsSrv(this.state.page);
-    this.setState({
-      spells: data,
-      isLoading: true,
-    });
-  };
-
-  changePage = (pageNumber) => {
-    this.setState(({ page }) => ({ page: page + pageNumber }));
-  };
-
-  render() {
-    const { spells, isLoading } = this.state;
-    const notLoading = (
-      <Loading>
-        <LoadingTitle>loading...</LoadingTitle>
-        <LoadingImg src={`/image/magic.gif`} alt="" />
-      </Loading>
-    );
-    return (
-      <CharactersContainer>
-        <CharacterTitle>All Spells</CharacterTitle>
-        <ContainerData>
-          {!isLoading ? (
-            notLoading
-          ) : (
-            <BlocData>
-              {spells.map(({ spell, _id }, i) => (
-                <div key={i}>
-                  <DesignLinkHouseDetail key={i} to={`/Spells/${_id}`}>
-                    <TextSimple>{spell}</TextSimple>
-                  </DesignLinkHouseDetail>
-                </div>
-              ))}
-              <ButtonBloc>
-                <Link onClick={this.changePage.bind(null, -1)}>
-                  <ImgLinkBtn src={`/image/left.svg`} alt="" />
-                </Link>
-                <Link onClick={this.changePage.bind(null, 1)}>
-                  <ImgLinkBtn src={`/image/right.svg`} alt="" />
-                </Link>
-              </ButtonBloc>
-            </BlocData>
-          )}
-        </ContainerData>
-      </CharactersContainer>
-    );
-  }
-}
+export default Spells;

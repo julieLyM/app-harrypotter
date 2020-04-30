@@ -64,12 +64,12 @@ export const Characters = () => {
               </div>
             ))}
             <ButtonBloc>
-              <Link onClick={changePage.bind(null, -1)}>
+              <button onClick={changePage.bind(null, -1)}>
                 <ImgLinkBtn src={`/image/left.svg`} alt="" />
-              </Link>
-              <Link onClick={changePage.bind(null, 1)}>
+              </button>
+              <button onClick={changePage.bind(null, 1)}>
                 <ImgLinkBtn src={`/image/right.svg`} alt="" />
-              </Link>
+              </button>
             </ButtonBloc>
           </BlocData>
         )}
