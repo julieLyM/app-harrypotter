@@ -1,5 +1,5 @@
 app harry potter on react/nodeJs (express)<br>
-Test jest and mock axios<br>
+2 versions on React (branch master = lifecycle and the other branch hooks)
 Heroku : https://app-harrypotter.herokuapp.com/
 <br>
 api : https://www.potterapi.com/
