@@ -5,9 +5,9 @@ import { getCharacterByIdSrv } from '../service/data';
 import {
   CharacterDetailContainer,
   CharacterDetailText,
-  CharacterDetailTitle,
+  DetailTitle,
   CharacterDetailSub,
-  CharacterDetailBloc,
+  BlocData,
 } from './styles/charactersStyle';
 
 export default class CharacterDetail extends Component {
@@ -43,44 +43,41 @@ export default class CharacterDetail extends Component {
         bloodStatus,
         school,
         alias,
-        animagus,
         boggart,
       },
     } = this.state;
     return (
       <CharacterDetailContainer>
-        <CharacterDetailBloc>
-          <CharacterDetailTitle>{name}</CharacterDetailTitle>
-          <CharacterDetailSub>alias :</CharacterDetailSub>
+        <BlocData>
+          <DetailTitle>{name}</DetailTitle>
+          <CharacterDetailSub>alias :</CharacterDetailSub>{' '}
           <CharacterDetailText>{alias}</CharacterDetailText>
-
-          <CharacterDetailSub>role :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>role :</CharacterDetailSub>{' '}
           <CharacterDetailText>{role}</CharacterDetailText>
-
-          <CharacterDetailSub>animagus :</CharacterDetailSub>
-          <CharacterDetailText>{animagus}</CharacterDetailText>
-
-          <CharacterDetailSub>patronus :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>patronus :</CharacterDetailSub>{' '}
           <CharacterDetailText>{patronus}</CharacterDetailText>
-
-          <CharacterDetailSub>house :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>house :</CharacterDetailSub>{' '}
           <CharacterDetailText>{house}</CharacterDetailText>
-
-          <CharacterDetailSub>school :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>school :</CharacterDetailSub>{' '}
           <CharacterDetailText>{school}</CharacterDetailText>
-
-          <CharacterDetailSub>species :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>species :</CharacterDetailSub>{' '}
           <CharacterDetailText>{species}</CharacterDetailText>
-
-          <CharacterDetailSub>wand :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>wand :</CharacterDetailSub>{' '}
           <CharacterDetailText>{wand}</CharacterDetailText>
-
-          <CharacterDetailSub>boggart :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>boggart :</CharacterDetailSub>{' '}
           <CharacterDetailText>{boggart}</CharacterDetailText>
-
-          <CharacterDetailSub>blood status :</CharacterDetailSub>
+          <br></br>
+          <CharacterDetailSub>blood status :</CharacterDetailSub>{' '}
           <CharacterDetailText>{bloodStatus}</CharacterDetailText>
-        </CharacterDetailBloc>
+          <br></br>
+        </BlocData>
       </CharacterDetailContainer>
     );
   }

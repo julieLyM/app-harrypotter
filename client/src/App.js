@@ -10,6 +10,7 @@ import HouseDetail from './components/HouseDetail';
 import SpellDetail from './components/SpellDetail';
 import { Header } from './components/Header';
 import './components/styles/index.css';
+import { AppContent, TwoContainer } from './components/styles/appStyle';
 
 function App() {
   return (
@@ -17,15 +18,19 @@ function App() {
       <p style={{ display: 'none' }}>APP Harry Potter</p>
       <BrowserRouter>
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/Houses" component={Houses} />
-        <Route path="/Houses/:id" component={HouseDetail} />
-        <Route exact path="/Spells" component={Spells} />
-        <Route path="/Spells/:id" component={SpellDetail} />
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Route path="/Characters" component={Characters} />
-          <Route path="/Characters/:id" component={CharacterDetail} />
-        </div>
+        <AppContent>
+          <Route exact path="/" component={Home} />
+          <Route path="/Houses" component={Houses} />
+          <Route path="/Houses/:id" component={HouseDetail} />
+          <TwoContainer>
+            <Route path="/Spells" component={Spells} />
+            <Route path="/Spells/:id" component={SpellDetail} />
+          </TwoContainer>
+          <TwoContainer>
+            <Route path="/Characters" component={Characters} />
+            <Route path="/Characters/:id" component={CharacterDetail} />
+          </TwoContainer>
+        </AppContent>
       </BrowserRouter>
     </div>
   );

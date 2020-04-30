@@ -1,19 +1,16 @@
 import styled from 'styled-components';
-import { GOLD } from './colors';
+import { DARK_GREY } from './colors';
 import { Link } from 'react-router-dom';
 import { device } from './mediaQuerries';
 
 export const MenuContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  padding: 10px;
-  background-color: ${GOLD};
+  background-color: ${DARK_GREY};
+  min-height: 15vh;
+  min-width: 100vw;
   @media (${device.mobileM}) {
-    width: 100%;
-    padding: 5%;
-  }
-  @media (${device.mobileS}) {
-    padding: 5%;
+    min-width: 110vw;
   }
 `;
 
@@ -57,7 +54,7 @@ export const DesignLink = styled(Link)`
   font-family: 'HarryPotter';
   font-size: 40px;
   margin: 0 18px;
-  color: black;
+  color: white;
   @media (${device.mobileL}) {
     font-size: 24px;
   }

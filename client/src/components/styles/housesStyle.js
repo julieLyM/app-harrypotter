@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GOLD } from './colors';
+import { GOLD, GREY } from './colors';
 import { Link } from 'react-router-dom';
 import { device } from './mediaQuerries';
 
@@ -39,7 +39,7 @@ export const DesignLink = styled(Link)`
   font-size: 26px;
   margin: 10px;
   font-weight: 900;
-  color: '#F0452B';
+  color: ${GOLD};
   text-decoration: none;
   text-transform: uppercase;
   a {
@@ -49,8 +49,6 @@ export const DesignLink = styled(Link)`
     color: yellow;
   }
 `;
-
-////////////////////// house detail
 
 export const HouseDetailContainer = styled.div`
   display: flex;
@@ -62,8 +60,26 @@ export const HouseDetailContainer = styled.div`
 export const DetailHouseBloc = styled.div`
   display: flex;
   justify-content: center;
-  border: solid black 2px;
-  border-radius: 2%;
+  background: linear-gradient(45deg, #353839, #19325c, #60789e, #112038);
+  background-size: 400%;
+  background-position: 0 100%;
+  animation: anim 10s infinite;
+  margin: 10px;
+  @keyframes anim {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  border-radius: 20px;
+  a {
+    color: ${GREY};
+  }
   width: 50%;
   @media (${device.mobileL}) {
     width: 100%;
@@ -79,17 +95,22 @@ export const BlocDetailInfo = styled.div`
 export const DetailHouseTitle = styled.span`
   color: ${GOLD};
   font-weight: 900;
+  font-size: 20px;
   text-transform: uppercase;
 `;
 
 export const DetailHouseText = styled.p`
   font-weight: 900;
+  font-size: 26px;
+  font-family: 'Caveat', cursive;
+  color: ${GREY};
 `;
 
 export const DesignLinkHouseDetail = styled(Link)`
   font-weight: 900;
-  color: black;
+  font-size: 26px;
   text-decoration: none;
+  font-family: 'Caveat', cursive;
   a {
     text-decoration: none;
   }

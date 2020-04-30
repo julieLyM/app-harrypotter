@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { getCharactersSrv } from '../service/data';
 import { Link } from 'react-router-dom';
 import { DesignLinkHouseDetail } from './styles/housesStyle';
+import { ImgLinkBtn } from './styles/charactersStyle';
 
 import {
   CharactersContainer,
-  CharactersTitle,
+  CharacterTitle,
   CharactersBloc,
   ButtonBloc,
+  TextSimple,
+  Loading,
+  LoadingTitle,
+  LoadingImg,
+  ContainerData,
+  BlocData,
 } from './styles/charactersStyle';
 
 export const Characters = () => {
@@ -28,41 +35,45 @@ export const Characters = () => {
     setPage(page + pageNumber);
   };
 
+  const notLoading = (
+    <Loading>
+      <LoadingTitle>loading...</LoadingTitle>
+      <LoadingImg src={`/image/wait.gif`} alt="" />
+    </Loading>
+  );
+
   return (
     <CharactersContainer>
       <CharactersBloc>
-        <CharactersTitle>All characters</CharactersTitle>
+        <CharacterTitle>All characters</CharacterTitle>
         <Link to={`/characters/5a12292a0f5ae10021650d7e`}>
-          <img
-            src={`/image/harrypotter.png`}
-            alt=""
-            style={{ width: '100px', height: '100px' }}
-          />
+          <img src={`/image/harry.gif`} alt="" style={{ margin: '0',width:'100px' }} />
         </Link>
       </CharactersBloc>
 
-      <div>
+      <ContainerData>
         {!isLoading ? (
-          <div>
-            <h3>is loading...</h3>
-          </div>
+          notLoading
         ) : (
-          <div style={{ textAlign: 'center' }}>
+          <BlocData>
             {characters.map((result, i) => (
               <div key={i}>
                 <DesignLinkHouseDetail to={`/characters/${result._id}`}>
-                  <p style={{ color: '#F0452B' }}>{result.name}</p>
+                  <TextSimple>{result.name}</TextSimple>
                 </DesignLinkHouseDetail>
               </div>
             ))}
-          </div>
+            <ButtonBloc>
+              <Link onClick={changePage.bind(null, -1)}>
+                <ImgLinkBtn src={`/image/left.svg`} alt="" />
+              </Link>
+              <Link onClick={changePage.bind(null, 1)}>
+                <ImgLinkBtn src={`/image/right.svg`} alt="" />
+              </Link>
+            </ButtonBloc>
+          </BlocData>
         )}
-      </div>
-
-      <ButtonBloc>
-        <button onClick={changePage.bind(null, -1)}>before page</button>
-        <button onClick={changePage.bind(null, 1)}>next page</button>
-      </ButtonBloc>
+      </ContainerData>
     </CharactersContainer>
   );
 };

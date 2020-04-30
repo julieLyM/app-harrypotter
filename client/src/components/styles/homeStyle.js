@@ -1,13 +1,40 @@
 import styled from 'styled-components';
 import { device } from './mediaQuerries';
+import { Link } from 'react-router-dom';
 
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
   @media (${device.mobileL}) {
-    height: 90vh;
+  }
+`;
+
+export const BlocHome = styled.div`
+  text-align: center;
+  background: linear-gradient(45deg, #353839, #19325c, #60789e, #112038);
+  background-size: 400%;
+  background-position: 0 100%;
+  -webkit-animation: anim 10s infinite;
+  animation: anim 10s infinite;
+  border-radius: 20px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  opacity: 80%;
+  @keyframes anim {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 `;
 
@@ -23,10 +50,11 @@ export const Title = styled.p`
 `;
 
 export const HomeTitle = styled.p`
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
+  font-family: 'Indie Flower', cursive;
   @media (${device.mobileL}) {
     font-size: 20px;
   }
@@ -35,7 +63,7 @@ export const HomeTitle = styled.p`
   }
 `;
 
-export const HomeButton = styled.button`
+export const HomeButton = styled(Link)`
   width: 100px;
 `;
 

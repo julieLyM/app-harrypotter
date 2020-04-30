@@ -9,6 +9,7 @@ export async function getCharactersSrv(page) {
 
 export async function getCharacterByIdSrv(id) {
   const { data } = await axios.get(`/api/v1/characters/${id}`);
+  console.log(data);
   return data;
 }
 

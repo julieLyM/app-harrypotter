@@ -5,7 +5,7 @@ import { getCharactersSrv, getHousesSrv } from './data';
 //   afterEach(() => {
 //     axios.reset();
 //   });
-//   test('should call get data function', async () => {
+//   test('should call get data function with params page', async () => {
 //     axios.get.mockImplementationOnce(() =>
 //       Promise.resolve({
 //         data: { res: ['name'] },
@@ -15,7 +15,7 @@ import { getCharactersSrv, getHousesSrv } from './data';
 //     const res = await getCharactersSrv();
 
 //     console.log(res);
-
+//     expect(axios.get).toHaveBeenCalledTimes(1);
 //     expect(axios.get).toHaveBeenCalledWith(`/api/v1/characters/`, {
 //       params: { page: 1 },
 //     });

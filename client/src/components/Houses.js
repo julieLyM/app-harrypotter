@@ -25,7 +25,6 @@ export default class Spells extends Component {
   };
 
   render() {
-    // const { houses } = this.state;
     return (
       <HouseContainer>
         <HousesTitle>Magic Houses</HousesTitle>
@@ -45,13 +44,6 @@ export default class Spells extends Component {
             <HouseImg src={`/image/pouff.png`} alt="" />
           </DesignLink>
         </HousesBloc>
-        {/* <HousesBloc>
-          {houses.map((house, i) => (
-            <DesignLink key={i} to={`/houses/${house._id}`}>
-              <p>{house.name}</p>
-            </DesignLink>
-          ))}
-        </HousesBloc> */}
       </HouseContainer>
     );
   }

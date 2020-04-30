@@ -3,9 +3,12 @@ import { getSpellsDetailSrv } from '../service/data';
 import {
   CharacterDetailContainer,
   CharacterDetailText,
-  CharacterDetailTitle,
+  DetailTitle,
   CharacterDetailSub,
   CharacterDetailBloc,
+  LoadingImg,
+  BlocData,
+  SpellImg
 } from './styles/charactersStyle';
 
 export default class Spells extends Component {
@@ -22,7 +25,7 @@ export default class Spells extends Component {
       this.fetchSpell();
     }
   }
-  
+
   fetchSpell = async () => {
     const data = await getSpellsDetailSrv(this.props.match.params.id);
     this.setState({
@@ -33,21 +36,29 @@ export default class Spells extends Component {
     const { spell } = this.state;
     console.log(this.state);
     return (
-      <CharacterDetailContainer>
-        <CharacterDetailTitle>Spell Detail</CharacterDetailTitle>
-        <CharacterDetailBloc>
-          {spell.map((element, i) => (
-            <div key={i}>
-              <CharacterDetailSub> Name of spell : </CharacterDetailSub>{' '}
-              <CharacterDetailText> {element.spell}</CharacterDetailText>
-              <CharacterDetailSub> Type of spell :</CharacterDetailSub>{' '}
-              <CharacterDetailText> {element.type}</CharacterDetailText>
-              <CharacterDetailSub> Effect :</CharacterDetailSub>{' '}
-              <CharacterDetailText> {element.effect}</CharacterDetailText>
-            </div>
-          ))}
-        </CharacterDetailBloc>
-      </CharacterDetailContainer>
+      <div style={{ display: 'flex' }}>
+        <SpellImg
+          src={`/image/wand.png`}
+          alt=""
+        />
+        <CharacterDetailContainer>
+          <BlocData>
+            <DetailTitle>Spell Detail</DetailTitle>
+            {spell.map((element, i) => (
+              <div key={i}>
+                <CharacterDetailSub> Name of spell : </CharacterDetailSub>{' '}
+                <CharacterDetailText> {element.spell}</CharacterDetailText>
+                <br></br>
+                <CharacterDetailSub> Type of spell :</CharacterDetailSub>{' '}
+                <CharacterDetailText> {element.type}</CharacterDetailText>
+                <br></br>
+                <CharacterDetailSub> Effect :</CharacterDetailSub>{' '}
+                <CharacterDetailText> {element.effect}</CharacterDetailText>
+              </div>
+            ))}
+          </BlocData>
+        </CharacterDetailContainer>
+      </div>
     );
   }
 }

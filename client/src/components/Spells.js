@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { DesignLinkHouseDetail } from './styles/housesStyle';
-
+import { Link } from 'react-router-dom';
 import { getSpellsSrv } from '../service/data';
-import { CharacterDetailTitle, ButtonBloc } from './styles/charactersStyle';
+
+import { DesignLinkHouseDetail } from './styles/housesStyle';
+import {
+  CharacterTitle,
+  ButtonBloc,
+  ImgLinkBtn,
+  TextSimple,
+  Loading,
+  LoadingTitle,
+  LoadingImg,
+  CharactersContainer,
+  BlocData,
+  ContainerData,
+} from './styles/charactersStyle';
 
 export default class Spells extends Component {
   state = {
@@ -36,34 +48,38 @@ export default class Spells extends Component {
   render() {
     const { spells, isLoading } = this.state;
     const notLoading = (
-      <div>
-        <h3>Loading spells...</h3>
-      </div>
+      <Loading>
+        <LoadingTitle>loading...</LoadingTitle>
+        <LoadingImg src={`/image/magic.gif`} alt="" />
+      </Loading>
     );
     return (
-      <div>
-        <CharacterDetailTitle>All Spells</CharacterDetailTitle>
-
-        <div style={{ margin: '0 auto', textAlign: 'center' }}>
+      <CharactersContainer>
+        <CharacterTitle>All Spells</CharacterTitle>
+        <ContainerData>
           {!isLoading ? (
             notLoading
           ) : (
-            <div>
+            <BlocData>
               {spells.map(({ spell, _id }, i) => (
                 <div key={i}>
                   <DesignLinkHouseDetail key={i} to={`/Spells/${_id}`}>
-                    <p style={{ color: '#FB7B1D' }}>{spell}</p>
+                    <TextSimple>{spell}</TextSimple>
                   </DesignLinkHouseDetail>
                 </div>
               ))}
-            </div>
+              <ButtonBloc>
+                <Link onClick={this.changePage.bind(null, -1)}>
+                  <ImgLinkBtn src={`/image/left.svg`} alt="" />
+                </Link>
+                <Link onClick={this.changePage.bind(null, 1)}>
+                  <ImgLinkBtn src={`/image/right.svg`} alt="" />
+                </Link>
+              </ButtonBloc>
+            </BlocData>
           )}
-        </div>
-        <ButtonBloc>
-          <button onClick={this.changePage.bind(null, -1)}>before page</button>
-          <button onClick={this.changePage.bind(null, 1)}>next page</button>
-        </ButtonBloc>
-      </div>
+        </ContainerData>
+      </CharactersContainer>
     );
   }
 }

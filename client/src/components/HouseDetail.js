@@ -10,6 +10,8 @@ import {
   BlocDetailInfo,
 } from './styles/housesStyle';
 
+import { BlocData, CharacterDetailSub } from './styles/charactersStyle';
+
 export default class HouseDetail extends Component {
   state = {
     house: [],
@@ -52,18 +54,18 @@ export default class HouseDetail extends Component {
           ) => (
             <DetailHouseBloc key={i}>
               <BlocDetailInfo>
-                <DetailHouseTitle>Mascot:</DetailHouseTitle>{' '}
+                <CharacterDetailSub>Mascot:</CharacterDetailSub>{' '}
                 <DetailHouseText> {mascot}</DetailHouseText>
-                <DetailHouseTitle>headOfHouse:</DetailHouseTitle>
+                <CharacterDetailSub>headOfHouse:</CharacterDetailSub>
                 <DetailHouseText> {headOfHouse}</DetailHouseText>
-                <DetailHouseTitle>houseGhost:</DetailHouseTitle>
+                <CharacterDetailSub>houseGhost:</CharacterDetailSub>
                 <DetailHouseText> {houseGhost}</DetailHouseText>
-                <DetailHouseTitle>founder:</DetailHouseTitle>
+                <CharacterDetailSub>founder:</CharacterDetailSub>
                 <DetailHouseText>{founder} </DetailHouseText>
-                <DetailHouseTitle>school:</DetailHouseTitle>{' '}
+                <CharacterDetailSub>school:</CharacterDetailSub>{' '}
                 <DetailHouseText>{school}</DetailHouseText>
                 <div>
-                  <DetailHouseTitle>values of house:</DetailHouseTitle>
+                  <CharacterDetailSub>values of house:</CharacterDetailSub>
                   {values.map((element, i) => (
                     <div key={i}>
                       <DetailHouseText>{element}</DetailHouseText>
@@ -72,7 +74,7 @@ export default class HouseDetail extends Component {
                 </div>
                 <p></p>
                 <div>
-                  <DetailHouseTitle>colors of house:</DetailHouseTitle>
+                  <CharacterDetailSub>colors of house:</CharacterDetailSub>
                   {colors.map((element, i) => (
                     <div key={i}>
                       <DetailHouseText>{element}</DetailHouseText>
@@ -82,7 +84,7 @@ export default class HouseDetail extends Component {
               </BlocDetailInfo>
 
               <BlocDetailInfo>
-                <DetailHouseTitle>members of house:</DetailHouseTitle>
+                <CharacterDetailSub>members of house:</CharacterDetailSub>
                 {members.map((element, i) => (
                   <div key={i}>
                     <DesignLinkHouseDetail to={`/characters/${element._id}`}>

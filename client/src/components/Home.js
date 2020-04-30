@@ -6,7 +6,9 @@ import {
   HomeButton,
   Title,
   HomeImg,
+  BlocHome,
 } from './styles/homeStyle';
+
 export default class Home extends Component {
   state = {
     hats: [],
@@ -34,11 +36,14 @@ export default class Home extends Component {
     return (
       <HomeContainer>
         <Title>Harry Potter</Title>
-
-        <HomeTitle>Clic which houses are you in ?</HomeTitle>
-        <HomeImg src={`/image/hat.png`} alt="" />
-        <HomeButton onClick={this.onClicked}>clic</HomeButton>
-        <HomeTitle>{hats}</HomeTitle>
+        <BlocHome>
+          <HomeImg src={`/image/hat.png`} alt="" />
+          <HomeTitle>Which houses are you in ?</HomeTitle>
+          <HomeButton onClick={this.onClicked}>
+            <img src={`/image/wand.svg`} alt="" style={{ width: '50px' }} />
+          </HomeButton>
+          <HomeTitle>{hats}</HomeTitle>
+        </BlocHome>
       </HomeContainer>
     );
   }
