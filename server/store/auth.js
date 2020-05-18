@@ -1,2 +1,3 @@
-const key = process.env.AUTH_HP;
-module.exports = key;
+const API_KEY = process.env.AUTH_HP;
+
+module.exports = { API_KEY };

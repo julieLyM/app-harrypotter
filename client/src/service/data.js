@@ -4,6 +4,7 @@ export async function getCharactersSrv(page) {
   const { data } = await axios.get(`/api/v1/characters/`, {
     params: { page },
   });
+  console.log('service', data);
   return data;
 }
 

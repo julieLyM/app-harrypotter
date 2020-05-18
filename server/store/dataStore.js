@@ -1,52 +1,50 @@
 const axios = require('axios');
-const key = require('../AUTH');
+const API_KEY = require('./auth.js');
 const URL = 'https://www.potterapi.com/v1/';
 
 const getCharacters = async () => {
-  const { data } = await axios.get(`${URL}characters/`, {
-    params: key,
-  });
+  const { data } = await axios.get(`${URL}characters?key=${API_KEY}`);
   return data;
 };
 
 const getCharacterById = async (id) => {
   const { data } = await axios.get(`${URL}characters/${id}/`, {
-    params: key,
+    params: API_KEY,
   });
   return data;
 };
 
 const getHouses = async () => {
   const { data } = await axios.get(`${URL}houses/`, {
-    params: key,
+    params: API_KEY,
   });
   return data;
 };
 
 const getHouseById = async (id) => {
   const { data } = await axios.get(`${URL}houses/${id}/`, {
-    params: key,
+    params: API_KEY,
   });
   return data;
 };
 
 const getSpells = async () => {
   const { data } = await axios.get(`${URL}spells/`, {
-    params: key,
+    params: API_KEY,
   });
   return data;
 };
 
 const getSpellId = async (id) => {
   const { data } = await axios.get(`${URL}spells/${id}/`, {
-    params: key,
+    params: API_KEY,
   });
   return data;
 };
 
 const getHat = async () => {
   const { data } = await axios.get(`${URL}sortingHat/`, {
-    params: key,
+    params: API_KEY,
   });
   return data;
 };
