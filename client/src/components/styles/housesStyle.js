@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GOLD, GREY } from './colors';
+import { GOLD, DARK_GREY } from './colors';
 import { Link } from 'react-router-dom';
 import { device } from './mediaQuerries';
 
@@ -16,19 +16,24 @@ export const HousesBloc = styled.p`
 `;
 
 export const HousesTitle = styled.p`
-  font-size: 34px;
+  font-size: 46px;
   font-weight: 900;
   text-transform: uppercase;
   font-family: 'HarryPotter';
   text-align: center;
+  color: ${GOLD};
+  border-radius: 20px;
   @media (${device.mobileL}) {
     font-size: 20px;
   }
 `;
 
 export const HouseImg = styled.img`
-  width: 130px;
-  height: 150px;
+  width: 180px;
+  height: 200px;
+  &:hover {
+    transform: rotateZ(20deg);
+  }
   @media (${device.mobileL}) {
     width: 100px;
     height: 120px;
@@ -60,25 +65,10 @@ export const HouseDetailContainer = styled.div`
 export const DetailHouseBloc = styled.div`
   display: flex;
   justify-content: center;
-  background: linear-gradient(45deg, #353839, #19325c, #60789e, #112038);
-  background-size: 400%;
-  background-position: 0 100%;
-  animation: anim 10s infinite;
-  margin: 10px;
-  @keyframes anim {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   a {
-    color: ${GREY};
+    color: ${DARK_GREY};
   }
   width: 50%;
   @media (${device.mobileL}) {
@@ -102,16 +92,17 @@ export const DetailHouseTitle = styled.span`
 export const DetailHouseText = styled.p`
   font-weight: 900;
   font-size: 26px;
-  font-family: 'Caveat', cursive;
-  color: ${GREY};
+  font-family: 'Montserrat', sans-serif;
+  color: ${DARK_GREY};
 `;
 
 export const DesignLinkHouseDetail = styled(Link)`
   font-weight: 900;
   font-size: 26px;
   text-decoration: none;
-  font-family: 'Caveat', cursive;
-  a {
-    text-decoration: none;
+  color: ${DARK_GREY};
+  font-family: 'Montserrat', sans-serif;
+  &:hover {
+    color: ${GOLD};
   }
 `;

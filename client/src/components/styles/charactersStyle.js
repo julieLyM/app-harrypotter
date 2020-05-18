@@ -26,39 +26,20 @@ export const ContainerData = styled.div`
 `;
 
 export const BlocData = styled.div`
-  background: linear-gradient(
-    45deg,
-    rgba(53, 56, 57, 0.5),
-    #19325c,
-    #60789e,
-    #112038
-  );
-  background-size: 400%;
-  background-position: 0 100%;
-  animation: anim 10s infinite;
+  background: rgba(255, 255, 255, 0.8);
   margin: 10px;
-  @keyframes anim {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
   border-radius: 20px;
   padding: 5%;
+  width: 80%;
   a {
-    color: ${GOLD};
+    color: ${DARK_GREY};
   }
 `;
 
 export const ButtonBloc = styled.div`
   display: flex;
   justify-content: space-around;
-  color: white;
+  color: ${DARK_GREY};
   button {
     border: none;
     background-color: transparent;
@@ -80,17 +61,17 @@ export const TextSimple = styled.p`
 export const Loading = styled.div`
   text-align: center;
   margin: 10% auto;
-  height: 180px;
+  height: 200px;
   width: 280px;
-  border-radius: 20px;
-  background-color: black;
+  background: rgba(255, 255, 255, 0.8);
 `;
 
 export const LoadingTitle = styled.p`
   color: ${GOLD};
   text-transform: uppercase;
-  font-family: 'Caveat', cursive;
-  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
   margin: auto;
 `;
 
@@ -106,13 +87,12 @@ export const CharacterDetailContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   color: ${GREY};
-  font-family: 'Caveat', cursive;
+  font-family: 'Montserrat', sans-serif;
 `;
 export const CharacterDetailBloc = styled.div`
-  background: ${DARK_GREY};
   border-radius: 50px;
   padding: 30px;
-  color: white;
+  color: ${DARK_GREY};
 `;
 
 export const CharacterTitle = styled.p`
@@ -120,29 +100,36 @@ export const CharacterTitle = styled.p`
   font-size: 44px;
   text-align: center;
   margin: 10px;
+  color: ${GOLD};
 `;
 
 export const DetailTitle = styled.p`
-  color: white;
+  color: ${GOLD};
   font-family: 'HarryPotter';
   font-size: 34px;
   text-align: center;
 `;
 
 export const CharacterDetailSub = styled.span`
-  font-size: 20px;
-  text-align: center;
-  color: ${GOLD};
+  font-size: 24px;
   font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
+  color: ${GOLD};
   @media (${device.mobileL}) {
-    font-size: 16px;
+    font-size: 20px;
   }
 `;
 
 export const CharacterDetailText = styled.span`
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: ${DARK_GREY};
+  @media (${device.mobileL}) {
+    font-size: 16px;
+  }
 `;
 
 export const SpellImg = styled.img`

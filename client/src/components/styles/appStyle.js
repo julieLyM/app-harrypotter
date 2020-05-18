@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from './mediaQuerries';
 
 export const AppContent = styled.div`
-  background-image: url(${`/image/poudlard.jpg`});
+  background-image: url('https://i.imgur.com/CMWTqJx.jpg?1');
   background-repeat: repeat-x;
   background-size: cover;
   min-height: 83vh;

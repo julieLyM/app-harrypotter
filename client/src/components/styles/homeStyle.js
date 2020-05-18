@@ -10,36 +10,13 @@ export const HomeContainer = styled.div`
 `;
 
 export const BlocHome = styled.div`
-  text-align: center;
-  background: linear-gradient(
-    45deg,
-    rgba(53, 56, 57, 0.5),
-    #19325c,
-    #60789e,
-    #112038
-  );
-  background-size: 400%;
-  background-position: 0 100%;
-  -webkit-animation: anim 10s infinite;
-  animation: anim 10s infinite;
-  border-radius: 20px;
-  padding: 15px;
-  text-align: center;
-  display: flex;
   align-items: center;
-  color: white;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  display: flex;
   flex-direction: column;
-  @keyframes anim {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  padding: 5px;
+  text-align: center;
 `;
 
 export const Title = styled.p`
@@ -48,6 +25,9 @@ export const Title = styled.p`
   text-transform: uppercase;
   font-family: 'HarryPotter';
   color: #f2a412;
+  &:hover {
+    transform: rotateY(20deg);
+  }
   @media (${device.mobileL}) {
     font-size: 30px;
   }
@@ -72,6 +52,9 @@ export const HomeButton = styled.button`
   border: none;
   background-color: transparent;
   outline: none;
+  &:hover {
+    transform: rotateZ(45deg);
+  }
 `;
 
 export const HomeImg = styled.img`

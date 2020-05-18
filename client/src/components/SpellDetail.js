@@ -8,7 +8,6 @@ import {
   DetailTitle,
   CharacterDetailSub,
   BlocData,
-  SpellImg,
 } from './styles/charactersStyle';
 
 const SpellDetail = () => {
@@ -25,7 +24,6 @@ const SpellDetail = () => {
   
   return (
     <div style={{ display: 'flex' }}>
-      <SpellImg src={`/image/wand.png`} alt="" />
       <CharacterDetailContainer>
         <BlocData>
           <DetailTitle>Spell Detail</DetailTitle>
