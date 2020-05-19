@@ -1,33 +1,30 @@
-import axios from 'axios';
+const mockAxios = require('jest-mock-axios').default;
+
 import { getCharactersSrv, getHousesSrv } from './data';
 
-// describe('test axios name characters', () => {
-//   afterEach(() => {
-//     axios.reset();
-//   });
-//   test('should call get data function with params page', async () => {
-//     axios.get.mockImplementationOnce(() =>
-//       Promise.resolve({
-//         data: { res: ['name'] },
-//       })
-//     );
-
-//     const res = await getCharactersSrv();
-
-//     console.log(res);
-//     expect(axios.get).toHaveBeenCalledTimes(1);
-//     expect(axios.get).toHaveBeenCalledWith(`/api/v1/characters/`, {
-//       params: { page: 1 },
-//     });
-//   });
-// });
-
-describe('test axios houses', () => {
+describe('test axios', () => {
   afterEach(() => {
-    axios.reset();
+    mockAxios.reset();
   });
+
+  // test('should call get data function with params page', async () => {
+  //   mockAxios.get.mockImplementationOnce(() =>
+  //     Promise.resolve({
+  //       data: { res: ['name'] },
+  //     })
+  //   );
+
+  //   const res = await getCharactersSrv();
+
+  //   console.log(res);
+  //   expect(mockAxios.get).toHaveBeenCalledTimes(1);
+  //   expect(mockAxios.get).toHaveBeenCalledWith(`/api/v1/characters/`, {
+  //     params: { page: 1 },
+  //   });
+  // });
+
   test('should call get data function', async () => {
-    axios.get.mockImplementationOnce(() =>
+    mockAxios.get.mockImplementationOnce(() =>
       Promise.resolve({
         data: { res: ['id'] },
       })
@@ -37,6 +34,6 @@ describe('test axios houses', () => {
 
     console.log(res);
 
-    expect(axios.get).toHaveBeenCalledWith(`/api/v1/houses/`);
+    expect(mockAxios.get).toHaveBeenCalledWith(`/api/v1/houses/`);
   });
 });
