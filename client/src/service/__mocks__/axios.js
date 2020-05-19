@@ -1,2 +1,2 @@
 import mockAxios from 'jest-mock-axios';
-export default mockAxios.default;
+export default mockAxios;
