@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { key } = require('../AUTH.js');
+const { key } = require('../AUTHS.js');
 const URL = 'https://www.potterapi.com/v1/';
 
 const getCharacters = async () => {
