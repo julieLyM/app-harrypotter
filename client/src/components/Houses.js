@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { getHousesSrv } from '../service/data';
+import React from 'react';
 import {
   HousesTitle,
   HousesBloc,
@@ -8,51 +7,28 @@ import {
   HouseContainer,
 } from './styles/housesStyle';
 
-export default class Spells extends Component {
-  state = {
-    houses: [],
-  };
+const Houses = () => {
+  return (
+    <HouseContainer>
+      <HousesTitle>Magic Houses</HousesTitle>
+      <HousesBloc>
+        <DesignLink to={`/houses/5a05e2b252f721a3cf2ea33f`}>
+          <HouseImg src={`/image/griffon.png`} alt="" />
+        </DesignLink>
+        <DesignLink to={`/houses/5a05da69d45bd0a11bd5e06f`}>
+          <HouseImg src={`/image/rav.png`} alt="" />
+        </DesignLink>
 
-  componentDidMount() {
-    this.fetchHouse();
-  }
+        <DesignLink to={`/houses/5a05dc8cd45bd0a11bd5e071`}>
+          <HouseImg src={`/image/slytherin.png`} alt="" />
+        </DesignLink>
 
-  fetchHouse = async (id) => {
-    const data = await getHousesSrv(id);
-    this.setState({
-      houses: data,
-    });
-  };
+        <DesignLink to={`/houses/5a05dc58d45bd0a11bd5e070`}>
+          <HouseImg src={`/image/pouff.png`} alt="" />
+        </DesignLink>
+      </HousesBloc>
+    </HouseContainer>
+  );
+};
 
-  render() {
-    // const { houses } = this.state;
-    return (
-      <HouseContainer>
-        <HousesTitle>Magic Houses</HousesTitle>
-        <HousesBloc>
-          <DesignLink to={`/houses/5a05e2b252f721a3cf2ea33f`}>
-            <HouseImg src={`/image/griffon.png`} alt="" />
-          </DesignLink>
-          <DesignLink to={`/houses/5a05da69d45bd0a11bd5e06f`}>
-            <HouseImg src={`/image/rav.png`} alt="" />
-          </DesignLink>
-
-          <DesignLink to={`/houses/5a05dc8cd45bd0a11bd5e071`}>
-            <HouseImg src={`/image/slytherin.png`} alt="" />
-          </DesignLink>
-
-          <DesignLink to={`/houses/5a05dc58d45bd0a11bd5e070`}>
-            <HouseImg src={`/image/pouff.png`} alt="" />
-          </DesignLink>
-        </HousesBloc>
-        {/* <HousesBloc>
-          {houses.map((house, i) => (
-            <DesignLink key={i} to={`/houses/${house._id}`}>
-              <p>{house.name}</p>
-            </DesignLink>
-          ))}
-        </HousesBloc> */}
-      </HouseContainer>
-    );
-  }
-}
+export default Houses;

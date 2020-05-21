@@ -1,12 +1,20 @@
-const mockAxios = require('jest-mock-axios');
+const mockAxios = require('jest-mock-axios').default;
 const getListCharacters = require('../controllers/characterCtrl');
-const { key } = require('../store/auth');
+const { AUTH_KEY } = require('../store/AUTHS');
 const URL = 'https://www.potterapi.com/v1/';
 
-test('should return datas', () => {
-  async function testGetCharacters() {
-    await getListCharacters();
-    expect(mockAxios.get).toHaveBeenCalledWith(`${URL}characters?key=${key}`);
-  }
-  testGetCharacters();
+describe('test axios name characters', () => {
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
+  test('should return datas', () => {
+    async function testGetCharacters() {
+      await getListCharacters();
+      expect(mockAxios.get).toHaveBeenCalledWith(
+        `${URL}characters?key=${AUTH_KEY}`
+      );
+    }
+    testGetCharacters();
+  });
 });

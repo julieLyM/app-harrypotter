@@ -1,53 +1,48 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import { getSpellsDetailSrv } from '../service/data';
 import {
   CharacterDetailContainer,
   CharacterDetailText,
-  CharacterDetailTitle,
+  DetailTitle,
   CharacterDetailSub,
-  CharacterDetailBloc,
+  BlocData,
 } from './styles/charactersStyle';
 
-export default class Spells extends Component {
-  state = {
-    spell: [],
-  };
+const SpellDetail = () => {
+  const [spell, setSpell] = useState([]);
+  const { id } = useParams();
 
-  componentDidMount() {
-    this.fetchSpell();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.fetchSpell();
-    }
-  }
+  useEffect(() => {
+    const fetchSpell = async () => {
+      const data = await getSpellsDetailSrv(id);
+      setSpell(data);
+    };
+    fetchSpell();
+  }, [id]);
   
-  fetchSpell = async () => {
-    const data = await getSpellsDetailSrv(this.props.match.params.id);
-    this.setState({
-      spell: data,
-    });
-  };
-  render() {
-    const { spell } = this.state;
-    console.log(this.state);
-    return (
+  return (
+    <div style={{ display: 'flex' }}>
       <CharacterDetailContainer>
-        <CharacterDetailTitle>Spell Detail</CharacterDetailTitle>
-        <CharacterDetailBloc>
+        <BlocData>
+          <DetailTitle>Spell Detail</DetailTitle>
           {spell.map((element, i) => (
             <div key={i}>
               <CharacterDetailSub> Name of spell : </CharacterDetailSub>{' '}
               <CharacterDetailText> {element.spell}</CharacterDetailText>
+              <br></br>
               <CharacterDetailSub> Type of spell :</CharacterDetailSub>{' '}
               <CharacterDetailText> {element.type}</CharacterDetailText>
+              <br></br>
               <CharacterDetailSub> Effect :</CharacterDetailSub>{' '}
               <CharacterDetailText> {element.effect}</CharacterDetailText>
             </div>
           ))}
-        </CharacterDetailBloc>
+        </BlocData>
       </CharacterDetailContainer>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default SpellDetail;

@@ -1,2 +1,2 @@
 const mockAxios = require('jest-mock-axios');
-module.export = mockAxios;
+module.export = mockAxios.default;

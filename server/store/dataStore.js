@@ -1,39 +1,40 @@
 const axios = require('axios');
-const { key } = require('../AUTH.js');
+const API_KEY = require('./auth');
+
 const URL = 'https://www.potterapi.com/v1/';
 
 const getCharacters = async () => {
-  const { data } = await axios.get(`${URL}characters/?key=${key}`);
+  const { data } = await axios.get(`${URL}characters?key=${API_KEY}`);
   return data;
 };
 
 const getCharacterById = async (id) => {
-  const { data } = await axios.get(`${URL}characters/${id}/?key=${key}`);
+  const { data } = await axios.get(`${URL}characters/${id}?key=${API_KEY}`);
   return data;
 };
 
 const getHouses = async () => {
-  const { data } = await axios.get(`${URL}houses/?key=${key}`);
+  const { data } = await axios.get(`${URL}houses?key=${API_KEY}/`);
   return data;
 };
 
 const getHouseById = async (id) => {
-  const { data } = await axios.get(`${URL}houses/${id}/?key=${key}`);
+  const { data } = await axios.get(`${URL}houses/${id}?key=${API_KEY}`);
   return data;
 };
 
 const getSpells = async () => {
-  const { data } = await axios.get(`${URL}spells/?key=${key}`);
+  const { data } = await axios.get(`${URL}spells?key=${API_KEY}`);
   return data;
 };
 
 const getSpellId = async (id) => {
-  const { data } = await axios.get(`${URL}spells/${id}/?key=${key}`);
+  const { data } = await axios.get(`${URL}spells/${id}?key=${API_KEY}`);
   return data;
 };
 
 const getHat = async () => {
-  const { data } = await axios.get(`${URL}sortingHat/?key=${key}`);
+  const { data } = await axios.get(`${URL}sortingHat?key=${API_KEY}`);
   return data;
 };
 

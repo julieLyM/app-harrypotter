@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { getHatSrv } from '../service/data';
 import {
   HomeContainer,
@@ -6,40 +6,34 @@ import {
   HomeButton,
   Title,
   HomeImg,
+  BlocHome,
 } from './styles/homeStyle';
-export default class Home extends Component {
-  state = {
-    hats: [],
-    isLoading: false,
-  };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.hats === null) {
-      this.onClicked();
-    }
-  }
+const Home = () => {
+  const [hats, setHats] = useState([]);
 
-  fetchHat = async () => {
+  const fetchHat = async () => {
     const data = await getHatSrv();
-    this.setState({
-      hats: data,
-    });
+    setHats(data);
   };
 
-  onClicked = async () => {
-    await this.fetchHat();
+  const onClicked = () => {
+    fetchHat();
   };
-  render() {
-    const { hats } = this.state;
-    return (
-      <HomeContainer>
-        <Title>Harry Potter</Title>
 
-        <HomeTitle>Clic which houses are you in ?</HomeTitle>
+  return (
+    <HomeContainer>
+      <Title>Harry Potter</Title>
+      <BlocHome>
         <HomeImg src={`/image/hat.png`} alt="" />
-        <HomeButton onClick={this.onClicked}>clic</HomeButton>
+        <HomeTitle>Which Hogwarts house are you?</HomeTitle>
+        <HomeButton onClick={onClicked}>
+          <img src={`/image/wand.svg`} alt="" style={{ width: '50px' }} />
+        </HomeButton>
         <HomeTitle>{hats}</HomeTitle>
-      </HomeContainer>
-    );
-  }
-}
+      </BlocHome>
+    </HomeContainer>
+  );
+};
+
+export default Home;

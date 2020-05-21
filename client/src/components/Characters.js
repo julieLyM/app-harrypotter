@@ -1,83 +1,79 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { getCharactersSrv } from '../service/data';
+import { Link } from 'react-router-dom';
+import { DesignLinkHouseDetail } from './styles/housesStyle';
+import { ImgLinkBtn } from './styles/charactersStyle';
+
 import {
   CharactersContainer,
-  CharactersTitle,
+  CharacterTitle,
   CharactersBloc,
   ButtonBloc,
+  TextSimple,
+  Loading,
+  LoadingTitle,
+  LoadingImg,
+  ContainerData,
+  BlocData,
 } from './styles/charactersStyle';
 
-import { DesignLinkHouseDetail } from './styles/housesStyle';
-export default class Peoples extends Component {
-  state = {
-    results: [],
-    page: 1,
-    isLoading: false,
-  };
-  componentDidMount() {
-    this.fetchCharacters();
-  }
+export const Characters = () => {
+  const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.page !== this.state.page) {
-      this.fetchCharacters();
-    }
-  }
+  useEffect(() => {
+    const fetchCharacters = async () => {
+      const data = await getCharactersSrv(page);
+      setCharacters(data);
+      setIsLoading(true);
+    };
+    fetchCharacters();
+  }, [page]);
 
-  fetchCharacters = async () => {
-    const data = await getCharactersSrv(this.state.page);
-    this.setState({
-      results: data,
-      isLoading: true,
-    });
+  const changePage = (pageNumber) => {
+    setPage(page + pageNumber);
   };
 
-  changePage = (pageNumber) => {
-    this.setState(({ page }) => ({ page: page + pageNumber }));
-  };
+  const notLoading = (
+    <Loading>
+      <LoadingTitle>loading...</LoadingTitle>
+      <LoadingImg src={`/image/wait.gif`} alt="" />
+    </Loading>
+  );
 
-  render() {
-    const { results, isLoading } = this.state;
-    const notLoading = (
-      <div>
-        <h3>Loading Characters...</h3>
-      </div>
-    );
-    return (
-      <CharactersContainer>
-        <CharactersBloc>
-          <CharactersTitle>All characters</CharactersTitle>
-          <Link to={`/characters/5a12292a0f5ae10021650d7e`}>
-            <img
-              src={`/image/harrypotter.png`}
-              alt=""
-              style={{ width: '100px', height: '100px' }}
-            />{' '}
-          </Link>
-        </CharactersBloc>
+  return (
+    <CharactersContainer>
+      <CharactersBloc>
+        <CharacterTitle>All characters</CharacterTitle>
+        <Link to={`/characters/5a12292a0f5ae10021650d7e`}>
+          <img src={`/image/harry.gif`} alt="" style={{ margin: '0',width:'100px' }} />
+        </Link>
+      </CharactersBloc>
 
-        <div style={{ margin: '0 auto', textAlign: 'center' }}>
-          {!isLoading ? (
-            notLoading
-          ) : (
-            <div>
-              {results.map((result, i) => (
-                <div key={i}>
-                  <DesignLinkHouseDetail to={`/characters/${result._id}`}>
-                    <p style={{ color: '#F0452B' }}>{result.name}</p>
-                  </DesignLinkHouseDetail>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <ButtonBloc>
-          <button onClick={this.changePage.bind(null, -1)}>before page</button>
-          <button onClick={this.changePage.bind(null, 1)}>next page</button>
-        </ButtonBloc>
-      </CharactersContainer>
-    );
-  }
-}
+      <ContainerData>
+        {!isLoading ? (
+          notLoading
+        ) : (
+          <BlocData>
+            {characters.map((result, i) => (
+              <div key={i}>
+                <DesignLinkHouseDetail to={`/characters/${result._id}`}>
+                  <TextSimple>{result.name}</TextSimple>
+                </DesignLinkHouseDetail>
+              </div>
+            ))}
+            <ButtonBloc>
+              <button onClick={changePage.bind(null, -1)}>
+                <ImgLinkBtn src={`/image/left.svg`} alt="" />
+              </button>
+              <button onClick={changePage.bind(null, 1)}>
+                <ImgLinkBtn src={`/image/right.svg`} alt="" />
+              </button>
+            </ButtonBloc>
+          </BlocData>
+        )}
+      </ContainerData>
+    </CharactersContainer>
+  );
+};
