@@ -13,6 +13,7 @@ import { AppContent, TwoContainer } from './components/styles/appStyle';
 import './components/styles/index.css';
 
 function App() {
+
   return (
     <div>
       <p style={{ display: 'none' }}>APP Harry Potter</p>

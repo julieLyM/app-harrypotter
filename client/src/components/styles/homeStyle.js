@@ -34,11 +34,12 @@ export const Title = styled.p`
 `;
 
 export const HomeTitle = styled.p`
+  color: white;
+  font-family: 'Indie Flower', cursive;
   font-size: 30px;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
-  font-family: 'Indie Flower', cursive;
   @media (${device.mobileL}) {
     font-size: 20px;
   }
