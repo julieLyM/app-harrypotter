@@ -3,6 +3,33 @@ const API_KEY = require('./auth');
 
 const URL = 'https://www.potterapi.com/v1/';
 
+const { Pool, Client } = require('pg');
+
+const pool = new Pool({
+  user: 'hp',
+  host: 'localhost',
+  database: 'quizz',
+  password: 'secret',
+  port: 4000,
+});
+
+const showDB = async () => {
+  const client = await pool.connect();
+  try {
+    const res = await client.query(`SELECT * FROM users WHERE id = 1`);
+    console.log(res.rows[0]);
+  } finally {
+    client.release();
+  }
+  return client;
+};
+
+async function getDataUsers() {
+  const client = await pool.connect();
+  const { rows: users } = await client.query('SELECT * FROM users');
+  return users;
+}
+
 const getCharacters = async () => {
   const { data } = await axios.get(`${URL}characters?key=${API_KEY}`);
   return data;
@@ -46,4 +73,6 @@ module.exports = {
   getHouseById,
   getSpells,
   getSpellId,
+  showDB,
+  getDataUsers,
 };
